@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Karla", sans-serif;
+}
+
+#root {
+  position: absolute;
+  top: 0;
+}
+
+#TopBar {
+  width: 100vw;
+  height: 75px;
+  background-image: linear-gradient(90deg, rgb(108, 0, 112), rgb(205, 0, 212));
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#TopBar p {
+  color: white;
+  font-size: 18px;
+}
+
+#Trollface {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#Trollface h1 {
+  font-size: 40px;
+  color: white;
+}
+#Trollface img {
+  width: 50px;
+  height: 50px;
+}
+
+#PlrInput {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.TextInput {
+  width: 50%;
+  height: 40px;
+  border-radius: 8px;
+}
+
+#GetMeme {
+  width: 100%;
+  background-image: linear-gradient(90deg, rgb(108, 0, 112), rgb(205, 0, 212));
+  color: white;
+  font-size: 18px;
+}
+
+#MemeFrame {
+  margin-top: 30px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MemeTx {
+  color: white;
+  font-size: 50px;
+  text-shadow: 2px 2px black;
+}
+
+#UpperText {
+  position: absolute;
+}
+
+#LowerText {
+  position: absolute;
+  top: 90%;
+}/*# sourceMappingURL=App.css.map */
