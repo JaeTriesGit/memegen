@@ -1,6 +1,4 @@
 import React from 'react'
-import MemeData from '../Data/memeData'
-const Memes = MemeData.data.memes
 
 export default function Meme(){
 
@@ -10,11 +8,17 @@ export default function Meme(){
         Img: 'https://i.imgflip.com/30b1gx.jpg'
     })
 
-    const [allMemes, setAllMemes] = React.useState(MemeData)
+    const [allMemes, setAllMemes] = React.useState([])
+
+    React.useEffect(()=>{
+        fetch('https://api.imgflip.com/get_memes')
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+    }, [])
 
     function GetMeme(){
-        let Rng = Math.floor(Math.random() * Memes.length)
-        let Murl = Memes[Rng].url
+        let Rng = Math.floor(Math.random() * allMemes.length)
+        let Murl = allMemes[Rng].url
         setMem(prevMem => ({
             ...prevMem,
             Img: Murl
@@ -22,26 +26,13 @@ export default function Meme(){
     }
 
     function handleChange(Ev){
-        const name = Ev.target.name
-        const val = Ev.target.value
-        console.log(Ev, name, val)
+        const {name, value} = Ev.target
         setMem(old => {
             return {
                 ...old,
-                [name]: val
+                [name]: value
             }
         })
-    }
-
-    function ChangeText(Type){
-        const UpperTx = document.getElementById('upper') //Top Input
-        const LowerTx = document.getElementById('lower') //Bottom Input
-
-        if (Type==='top' && UpperTx && UpperTx.value !== null){
-            Mem.topTx = UpperTx.value
-        } else if (Type==='bottom' && LowerTx && LowerTx.value !== null){
-            Mem.botTx = LowerTx.value
-        }
     }
 
     return(
